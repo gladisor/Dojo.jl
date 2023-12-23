@@ -19,19 +19,19 @@ pad = Dojo.Sphere(pad_r, pad_m)
 box = Dojo.Box(box_x, box_y, box_z, box_m)
 bodies = [pad, box]
 
-# pad_joint = JointConstraint(Planar(
-#     origin, pad, Y_AXIS, 
-#     spring = spring,
-#     damper = damper,
-#     child_vertex = - Z_AXIS * (pad_r + box_z),
-#     ))
-
-pad_joint = JointConstraint(Prismatic(
-    origin, pad, Dojo.X_AXIS, 
+pad_joint = JointConstraint(Planar(
+    origin, pad, Dojo.Y_AXIS, 
     spring = spring,
     damper = damper,
     child_vertex = - Dojo.Z_AXIS * (pad_r + box_z),
     ))
+
+# pad_joint = JointConstraint(Prismatic(
+#     origin, pad, Dojo.X_AXIS, 
+#     spring = spring,
+#     damper = damper,
+#     child_vertex = - Dojo.Z_AXIS * (pad_r + box_z),
+#     ))
 
 box_joint = JointConstraint(Prismatic(
     origin, box, Dojo.X_AXIS, 
